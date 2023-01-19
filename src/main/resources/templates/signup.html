@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/signupStyle.css">
+    <title>OHD</title>
+    <script src="js/jquery.js"></script>
+    <script type="text/javascript">
+        function logCheck(myform) {
+            /* 아이디 유효성 검사 */
+            if(myform.id.value.length == 0) {
+                alert("아이디가 누락됐습니다.");
+                myform.id.focus();
+                return false;
+            }
+
+            if(myform.pw.value.length == 0) {
+                alert("비밀번호가 누락됐습니다.");
+                myform.pw.focus();
+                return false;
+            }
+
+            if(myform.room.value.length == 0) {
+                alert("방 이름이 누락됐습니다.");
+                myform.room.focus();
+                return false;
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+      <div class="login-container">
+        <h1>Welcome</h1>
+        <form method="POST">
+            <label for="userId">아이디:</label><br>
+            <input type="text" id="userId" placeholder="아이디를 입력해주세요."><br>
+            <label for="pw">비밀번호:</label><br>
+            <input type="password" id="pw" placeholder="비밀번호를 입력해주세요."><br>
+            <label for="room">내 방 이름:</label><br>
+            <input type="text" id="room" placeholder="방 이름을 입력해주세요."><br>
+            <label for="dDay">D-day:</label><br>
+            <input type="date" id="dDay"><br>
+            <button class="submit" type="submit" value="생성하기"><a href="room.html">생성하기</a></button>
+        </form>
+      </div>
+</body>
+
+</html>
