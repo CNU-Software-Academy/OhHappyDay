@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<body>
+<div class="container">
+  <form action="/signup" method="post">
+    <div class="form-group">
+      ID <br /><input type="text" name="userId"><br />
+      PW<br /><input type="text" name="pw"><br />
+      방이름<br /><input type="text" name="room"><br />
+      D-DAY<br /><input type="text" name="dDay" id="mb_11" class="ts" autocomplete="off"/>
+
+    </div>
+    <button type="submit">등록</button>
+  </form>
+</div> <!-- /container -->
+</body>
+<script>
+  $(function(){
+    $('#mb_11').datepicker({
+      lang:'ko',
+      dateFormat: 'yy-mm-dd',
+      monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'], //달력의 월 부분 텍스트
+      monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'], //달력의 월 부분 Tooltip
+      dayNamesMin: ['일','월','화','수','목','금','토'], //달력의 요일 텍스트
+      dayNames: ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'] //달력의 요일 Tooltip
+    });
+  })
+</script>
+</html>
