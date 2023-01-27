@@ -1,8 +1,6 @@
-package cnu.ohd.owner.service;
+package cnu.ohd.Member.service;
 
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class OwnerServiceTest {
 

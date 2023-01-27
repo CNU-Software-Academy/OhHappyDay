@@ -1,4 +1,4 @@
-package cnu.ohd.owner.domain;
+package cnu.ohd.Member.domain;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -9,14 +9,14 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 @Entity
-@Table(name="owner")
+@Table(name="member")
 @Getter
 @Setter
 @DynamicInsert
-public class Owner {
+public class Member {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name="member_id")
     private int id;
 
     @Column(name="uuid_id")
@@ -34,7 +34,7 @@ public class Owner {
     @Column(name = "dDay")
     private LocalDate dDay;
 
-    @Column(name = "crated_at")
+    @Column(name = "created_at")
     private LocalDate createdAt;
 
 }
