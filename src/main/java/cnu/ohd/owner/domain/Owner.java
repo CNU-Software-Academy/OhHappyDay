@@ -1,4 +1,4 @@
-package cnu.ohd.owner.model;
+package cnu.ohd.owner.domain;
 
 import jakarta.persistence.*;
 import lombok.Getter;
