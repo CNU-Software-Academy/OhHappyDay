@@ -28,8 +28,8 @@ public class Member {
     @Column(name = "pw")
     private String pw;
 
-    @Column(name = "room")
-    private String room;
+    @Column(name = "title")
+    private String title;
 
     @Column(name = "dDay")
     private LocalDate dDay;

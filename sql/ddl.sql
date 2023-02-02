@@ -4,7 +4,7 @@ create table member (
                        uuid_id binary(16) not null unique,
                        user_id varchar(45) not null unique,
                        pw varchar(45) not null,
-                       room varchar(20) not null,
+                       title varchar(20) not null,
                        dDay date not null,
                        created_at date not null default current_date
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
