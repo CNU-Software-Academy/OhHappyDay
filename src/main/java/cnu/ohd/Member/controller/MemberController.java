@@ -24,7 +24,7 @@ public class MemberController {
 
     }
 
-    @PostMapping("/singin")
+    @PostMapping("/api/signin")
     @ResponseBody
     public MemberVo testSingIn(){
 
@@ -35,6 +35,5 @@ public class MemberController {
         user.setCreatedAt(LocalDate.now());
 
         return user;
-
     }
 }
