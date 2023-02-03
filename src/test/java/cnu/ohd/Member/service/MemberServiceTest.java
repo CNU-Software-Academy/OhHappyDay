@@ -26,14 +26,13 @@ class MemberServiceTest {
     MemberRepository memberRepository;
 
     @Test
-    @Rollback(value = false)
     public void 회원가입() throws Exception {
         //given
         UUID uuid = UUID.randomUUID();
         Member member = new Member();
         member.setUserId("bye");
         member.setPw("byebye1234");
-        member.setRoom("안녕잘가");
+        member.setTitle("안녕잘가");
         member.setDDay(LocalDate.parse("2023-12-01"));
         member.setUuidId(uuid);
 
@@ -42,7 +41,22 @@ class MemberServiceTest {
 
         //then
         assertEquals(member, memberRepository.findOne(saveId));
+    }
 
+    @Test
+    public void UUID조회() throws Exception {
+
+        UUID uuid = UUID.randomUUID();
+        Member member = new Member();
+        member.setUserId("bye");
+        member.setPw("byebye1234");
+        member.setTitle("안녕잘가");
+        member.setDDay(LocalDate.parse("2023-12-01"));
+        member.setUuidId(uuid);
+
+        int saveId = memberService.join(member);
+
+        assertEquals(member, memberRepository.findByUuid(uuid));
 
     }
 
