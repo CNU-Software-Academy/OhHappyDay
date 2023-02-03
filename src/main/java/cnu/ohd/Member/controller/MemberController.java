@@ -6,6 +6,7 @@ import cnu.ohd.Member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.time.LocalDate;
@@ -31,7 +32,7 @@ public class MemberController {
     // api 통신 test 용 (JSON 객체 만들어서 반환)
     @PostMapping("/api/signin")
     @ResponseBody
-    public Member testSignIn(MemberDto form){
+    public Member testSignIn(@RequestBody MemberDto form){
 
         System.out.println(form.toString());
 
