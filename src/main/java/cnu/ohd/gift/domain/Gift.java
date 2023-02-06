@@ -4,6 +4,7 @@ import cnu.ohd.Member.domain.Member;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.DynamicInsert;
 
 @Entity
@@ -16,11 +17,11 @@ public class Gift {
     @Column(name="gift_id")
     private int id;
 
-    @Column(name="member_id")
-    private int memberId;
-/*    @ManyToOne(fetch = FetchType.LAZY)
+//    @Column(name="member_id")
+//    private int memberId;
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
-    private Member member;*/
+    private Member member;
 
     @Column(name="g_to")
     private String gTo;
@@ -37,6 +38,7 @@ public class Gift {
     @Column(name = "ribbon")
     private char ribbonColor;
 
+    @ColumnDefault("0")
     @Column(name = "checked")
     private int checked;
 

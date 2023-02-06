@@ -1,4 +1,4 @@
--- H2 용 --
+-- 테이블 생성용 --
 create table member (
                        member_id int unsigned auto_increment primary key,
                        uuid_id binary(16) not null unique,
@@ -20,3 +20,6 @@ create table gift (
                       checked tinyint(1) default 0 not null,
                       foreign key(member_id) references member(member_id) on delete restrict
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+-- test용 계정 추가 --
+insert into member(uuid_id,user_id,pw,title,dDay) values(UUID_TO_BIN("483dcf17-e82c-49e4-a709-54b9a37c64ac"),"me","1234","내방","2023-12-30");

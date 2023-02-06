@@ -1,10 +1,13 @@
 package cnu.ohd.Member.domain;
 
 import jakarta.persistence.*;
+import lombok.Generated;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.GenerationTime;
 
 import java.time.LocalDate;
 import java.util.UUID;
@@ -34,11 +37,9 @@ public class Member {
     @Column(name = "dDay")
     private LocalDate dDay;
 
-    @ColumnDefault(value = "CURRENT_DATE")
-    @Column(name = "created_at")
-    private LocalDate createdAt;
 
-/*    @OneToMany(mappedBy = "member")
-    private List<Gift> gifts = new ArrayList<>();*/
+    @Column(name = "created_at", nullable = false, updatable = false)
+    @CreationTimestamp
+    private LocalDate createdAt;
 
 }

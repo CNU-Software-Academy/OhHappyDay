@@ -4,6 +4,7 @@ import cnu.ohd.Member.MemberDto;
 import cnu.ohd.Member.domain.Member;
 import cnu.ohd.Member.service.MemberService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,32 +15,34 @@ import java.util.UUID;
 
 @Controller
 @RequiredArgsConstructor
+@Slf4j
 public class MemberController {
 
     private final MemberService memberService;
 
-    @PostMapping("/signup")
+    // 회원가입
+    @PostMapping("/api/signup")
     @ResponseBody
-    public void saveMember(){
+    public UUID saveMember(@RequestBody MemberDto form){
 
-        // 회원 가입할 객체 만들기 (이걸 따로 메서드를 만들어서 사용해야함)
-//        memberService.create()
+        log.info("SignIn info -> UserId : {}, Pw : {}, Title : {}, dDay : {}",form.getUserId(),form.getPw(),form.getTitle(),form.getDDay());
 
-//        memberService.join();
+        Member member = memberService.create(form.getUserId(), form.getPw(), form.getTitle(), form.getDDay());
+//        memberService.join(member);
+
+        return member.getUuidId();
 
     }
 
-    // api 통신 test 용 (JSON 객체 만들어서 반환)
+    // 로그인 테스트용
+    // 원래는 UUID만 반환해주기
     @PostMapping("/api/signin")
     @ResponseBody
     public Member testSignIn(@RequestBody MemberDto form){
 
-        System.out.println(form.toString());
+        log.info("SignIn info -> UserId : {}, PW : {}",form.getUserId(),form.getPw());
 
-        Member user = new Member();
-        user.setUuidId(UUID.randomUUID());
-        user.setTitle("내방");
-        user.setDDay(LocalDate.parse("2023-12-31"));
+        Member user = memberService.create("me","1234","내방",LocalDate.parse("2023-12-31"));
         user.setCreatedAt(LocalDate.now());
 
         return user;
