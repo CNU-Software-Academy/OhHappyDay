@@ -1,5 +1,6 @@
 package cnu.ohd.Member;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,7 +16,11 @@ public class MemberDto {
     private String userId;
     private String pw;
     private String title;
+
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate dDay;
+
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate createdAt;
 
 }

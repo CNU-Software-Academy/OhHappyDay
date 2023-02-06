@@ -3,12 +3,11 @@ package cnu.ohd.Member.controller;
 import cnu.ohd.Member.MemberDto;
 import cnu.ohd.Member.domain.Member;
 import cnu.ohd.Member.service.MemberService;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.UUID;
@@ -42,7 +41,7 @@ public class MemberController {
 
         log.info("SignIn info -> UserId : {}, PW : {}",form.getUserId(),form.getPw());
 
-        Member user = memberService.create("me","1234","내방",LocalDate.parse("2023-12-31"));
+        Member user = memberService.create("me","1234","내방", LocalDate.parse("2023-12-31"));
         user.setCreatedAt(LocalDate.now());
 
         return user;
