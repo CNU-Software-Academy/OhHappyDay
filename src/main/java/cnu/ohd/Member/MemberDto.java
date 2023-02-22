@@ -13,8 +13,6 @@ public class MemberDto {
 
     private int id;
     private UUID uuidId;
-    private String userId;
-    private String pw;
     private String title;
 
     @JsonFormat(pattern = "yyyy-MM-dd")

@@ -24,10 +24,9 @@ public class MemberService {
         return member.getId();
     }
 
-    public Member create(String userId, String pw, String title, LocalDate dDay){
+    public Member create(String title, LocalDate dDay){
         Member member = new Member();
-        member.setUserId(userId);
-        member.setPw(pw);
+        member.setUuidId(UUID.randomUUID());
         member.setTitle(title);
         member.setDDay(dDay);
         member.setUuidId(UUID.randomUUID());
@@ -36,14 +35,14 @@ public class MemberService {
     }
 
     // 회원 전체 조회
-    public List<Member> findMembers(){
-        return memberRepository.findAll();
-    }
+//    public List<Member> findMembers(){
+//        return memberRepository.findAll();
+//    }
 
     // 회원 단건 조회
-    public Member findOne(int memberId){
-        return memberRepository.findOne(memberId);
-    }
+//    public Member findOne(int memberId){
+//        return memberRepository.findOne(memberId);
+//    }
 
     // uuid 단건 조회
     public Member findByUuid(UUID uuid) {

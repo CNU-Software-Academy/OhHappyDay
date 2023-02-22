@@ -29,11 +29,6 @@ public class MemberRepository {
                 .getResultList();
     }
 
-    // user_id로 단건 조회
-    public Member findByUserId(int userId){
-        return em.find(Member.class, userId);
-    }
-
     // uuid로 단건 조회
     public Member findByUuid(UUID uuidId){
         return em.createQuery("select m from Member m where m.uuidId = :uuidId", Member.class)
