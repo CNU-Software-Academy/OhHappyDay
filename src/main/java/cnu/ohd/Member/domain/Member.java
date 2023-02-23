@@ -2,6 +2,7 @@ package cnu.ohd.Member.domain;
 
 import cnu.ohd.gift.GiftDto;
 import cnu.ohd.gift.domain.Gift;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,9 +23,11 @@ public class Member {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="member_id")
+    @JsonIgnore
     private long id;
 
     @Column(name="uuid_id")
+    @JsonIgnore
     private UUID uuidId;
 
     @Column(name = "title")

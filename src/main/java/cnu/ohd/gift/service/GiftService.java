@@ -25,7 +25,7 @@ public class GiftService {
         return gift.getGiftId();
     }
 
-    public Gift create(UUID memberId,String gTo,String message,String gFrom,char box,char ribbon) {
+    public Gift create(UUID memberId,String gTo,String message,String gFrom,char box,int ribbon) {
         Member member = memberRepository.findByUuid(memberId);
 
         Gift gift = new Gift();
