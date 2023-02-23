@@ -8,10 +8,10 @@ import java.rmi.server.UID;
 import java.time.LocalDate;
 import java.util.UUID;
 
-@Getter @Setter
+@Getter
 public class MemberDto {
 
-    private int id;
+    private long id;
     private UUID uuidId;
     private String title;
 

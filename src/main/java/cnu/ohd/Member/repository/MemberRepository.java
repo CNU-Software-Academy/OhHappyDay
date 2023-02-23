@@ -19,8 +19,12 @@ public class MemberRepository {
     }
 
     // 단건 조회 (PK 기준으로 찾는 거라 이걸 쓰면 안될 것 같음)
-    public Member findOne(int id){
+    public Member findOne(long id){
         return em.find(Member.class, id);
+    }
+
+    public long findUserId(UUID uuidID){
+        return findByUuid(uuidID).getId();
     }
 
     // 전체 조회

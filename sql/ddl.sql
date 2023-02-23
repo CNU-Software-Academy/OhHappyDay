@@ -9,7 +9,7 @@ create table member (
 
 create table gift (
                       gift_id bigint unsigned auto_increment primary key,
-                      member_id int unsigned not null,
+                      member_id bigint unsigned not null,
                       g_to varchar(45) not null,
                       message varchar(2000) not null,
                       g_from varchar(45) not null,

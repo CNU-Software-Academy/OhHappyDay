@@ -19,7 +19,7 @@ public class MemberService {
 
     // 회원가입
     @Transactional
-    public int join(Member member){
+    public long join(Member member){
         memberRepository.save(member);
         return member.getId();
     }
@@ -35,16 +35,16 @@ public class MemberService {
     }
 
     // 회원 전체 조회
-//    public List<Member> findMembers(){
-//        return memberRepository.findAll();
-//    }
+    public List<Member> findMembers(){
+        return memberRepository.findAll();
+    }
 
     // 회원 단건 조회
-//    public Member findOne(int memberId){
-//        return memberRepository.findOne(memberId);
-//    }
+    public Member findOne(long memberId){
+        return memberRepository.findOne(memberId);
+    }
 
-    // uuid 단건 조회
+    // uuid 조회
     public Member findByUuid(UUID uuid) {
         return memberRepository.findByUuid(uuid);
     }

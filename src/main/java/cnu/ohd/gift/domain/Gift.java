@@ -13,23 +13,21 @@ import org.hibernate.annotations.DynamicInsert;
 @DynamicInsert
 public class Gift {
 
-    @Id @GeneratedValue
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="gift_id")
-    private int id;
+    private long giftId;
 
-//    @Column(name="member_id")
-//    private int memberId;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
 
-    @Column(name="g_to")
+    @Column(name="gto")
     private String gTo;
 
     @Column(name = "message")
     private String message;
 
-    @Column(name = "g_from")
+    @Column(name = "gfrom")
     private String gFrom;
 
     @Column(name = "box")
