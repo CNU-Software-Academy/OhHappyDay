@@ -1,8 +1,9 @@
 spring:
   datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:tcp://localhost/~/testOHD;MODE=MYSQL
-    username: sa
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://35.200.89.115:3306/ohd
+    username: root
+    password: ohd0222
 
   jpa:
     hibernate:

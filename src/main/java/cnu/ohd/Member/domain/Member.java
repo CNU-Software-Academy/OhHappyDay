@@ -1,12 +1,17 @@
 package cnu.ohd.Member.domain;
 
+import cnu.ohd.gift.GiftDto;
+import cnu.ohd.gift.domain.Gift;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicInsert;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Entity
@@ -17,28 +22,19 @@ public class Member {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="member_id")
-    private int id;
+    private long id;
 
     @Column(name="uuid_id")
     private UUID uuidId;
 
-    @Column(name="user_id")
-    private String userId;
+    @Column(name = "title")
+    private String title;
 
-    @Column(name = "pw")
-    private String pw;
-
-    @Column(name = "room")
-    private String room;
-
-    @Column(name = "dDay")
+    @Column(name = "d_day")
     private LocalDate dDay;
 
-    @ColumnDefault(value = "CURRENT_DATE")
-    @Column(name = "created_at")
+    @Column(name = "created_at", nullable = false, updatable = false)
+    @CreationTimestamp
     private LocalDate createdAt;
-
-/*    @OneToMany(mappedBy = "member")
-    private List<Gift> gifts = new ArrayList<>();*/
 
 }

@@ -1,17 +1,15 @@
--- H2 용 --
+-- 테이블 생성용 --
 create table member (
-                       member_id int unsigned auto_increment primary key,
+                       member_id bigint unsigned auto_increment primary key,
                        uuid_id binary(16) not null unique,
-                       user_id varchar(45) not null unique,
-                       pw varchar(45) not null,
-                       room varchar(20) not null,
-                       dDay date not null,
-                       created_at date not null default current_date
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+                       title varchar(20) not null,
+                       dDay datetime not null,
+                       created_at datetime not null default CURRENT_TIMESTAMP
+);
 
 create table gift (
-                      gift_id int unsigned auto_increment primary key,
-                      member_id int unsigned not null,
+                      gift_id bigint unsigned auto_increment primary key,
+                      member_id bigint unsigned not null,
                       g_to varchar(45) not null,
                       message varchar(2000) not null,
                       g_from varchar(45) not null,
@@ -19,4 +17,4 @@ create table gift (
                       ribbon char(1) not null,
                       checked tinyint(1) default 0 not null,
                       foreign key(member_id) references member(member_id) on delete restrict
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+);

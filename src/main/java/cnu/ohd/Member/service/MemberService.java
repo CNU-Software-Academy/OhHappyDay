@@ -6,7 +6,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @Transactional(readOnly = true)
@@ -17,9 +19,19 @@ public class MemberService {
 
     // 회원가입
     @Transactional
-    public int join(Member member){
+    public long join(Member member){
         memberRepository.save(member);
         return member.getId();
+    }
+
+    public Member create(String title, LocalDate dDay){
+        Member member = new Member();
+        member.setUuidId(UUID.randomUUID());
+        member.setTitle(title);
+        member.setDDay(dDay);
+        member.setUuidId(UUID.randomUUID());
+
+        return member;
     }
 
     // 회원 전체 조회
@@ -28,8 +40,13 @@ public class MemberService {
     }
 
     // 회원 단건 조회
-    public Member findOne(int memberId){
+    public Member findOne(long memberId){
         return memberRepository.findOne(memberId);
+    }
+
+    // uuid 조회
+    public Member findByUuid(UUID uuid) {
+        return memberRepository.findByUuid(uuid);
     }
 
 
