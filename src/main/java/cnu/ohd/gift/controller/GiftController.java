@@ -23,7 +23,7 @@ public class GiftController {
     @PostMapping("/api/write/{uuidId}")
     @ResponseBody
     public long saveGift(@PathVariable("uuidId") UUID uuidId, @RequestBody GiftDto form) {
-        log.info("Make Gift info -> gTo: {}, Message: {}, gFrom: {}, box: {}, ribbon: {}", form.getGto(), form.getMessage(), form.getGfrom(), form.getBoxColor(), form.getRibbonColor());
+//        log.info("Make Gift info -> gTo: {}, Message: {}, gFrom: {}, box: {}, ribbon: {}", form.getGto(), form.getMessage(), form.getGfrom(), form.getBoxColor(), form.getRibbonColor());
 
         Gift gift = giftService.create(uuidId, form.getGto(), form.getMessage(), form.getGfrom(), form.getBoxColor(), form.getRibbonColor());
         long giftId = giftService.join(gift);

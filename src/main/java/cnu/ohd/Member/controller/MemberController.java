@@ -29,7 +29,7 @@ public class MemberController {
     @ResponseBody
     public UUID saveMember(@RequestBody MemberDto form){
 
-        log.info("SignUp info -> Title : {}, dDay : {}",form.getTitle(),form.getDDay());
+//        log.info("SignUp info -> Title : {}, dDay : {}",form.getTitle(),form.getDDay());
 
         Member member = memberService.create(form.getTitle(), form.getDDay());
         memberService.join(member);
@@ -41,7 +41,6 @@ public class MemberController {
     @ResponseBody
     public ResponseEntity <Map<String,Object>> roomInfo(@PathVariable("uuidId") UUID uuidId) {
         long userId = memberRepository.findUserId(uuidId);
-        log.info("userID : {}",userId);
 
         Map<String,Object> map = new HashMap<>();
 

@@ -1,6 +1,7 @@
 package cnu.ohd.gift.domain;
 
 import cnu.ohd.Member.domain.Member;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,6 +20,7 @@ public class Gift {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
+    @JsonIgnore
     private Member member;
 
     @Column(name="gto")
@@ -34,7 +36,7 @@ public class Gift {
     private char boxColor;
 
     @Column(name = "ribbon")
-    private char ribbonColor;
+    private int ribbonColor;
 
     @ColumnDefault("0")
     @Column(name = "checked")
