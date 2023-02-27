@@ -24,7 +24,7 @@ public class MemberController {
     private final MemberRepository memberRepository;
     private final GiftService giftService;
 
-    // 방 생성 (회원가입)
+    // 방 생성
     @PostMapping("/api/signup")
     @ResponseBody
     public UUID saveMember(@RequestBody MemberDto form){
