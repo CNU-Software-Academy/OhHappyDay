@@ -29,7 +29,6 @@ public class MemberService {
         member.setUuidId(UUID.randomUUID());
         member.setTitle(title);
         member.setDDay(dDay);
-        member.setUuidId(UUID.randomUUID());
 
         return member;
     }
