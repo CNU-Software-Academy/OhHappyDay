@@ -25,6 +25,11 @@ public class GiftService {
         return gift.getGiftId();
     }
 
+    @Transactional
+    public void changeGift(long giftId) {
+        giftRepository.changeGift(giftId);
+    }
+
     public Gift create(UUID memberId,String gTo,String message,String gFrom,char box,int ribbon) {
         Member member = memberRepository.findByUuid(memberId);
 

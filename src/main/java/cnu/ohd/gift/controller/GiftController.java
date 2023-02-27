@@ -6,10 +6,7 @@ import cnu.ohd.gift.service.GiftService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
@@ -31,5 +28,9 @@ public class GiftController {
         return giftId;
     }
 
-
+    @PatchMapping("/api/checked/{giftId}")
+    @ResponseBody
+    public void checkedGift(@PathVariable("giftId") long giftId) {
+        giftService.changeGift(giftId);
+    }
 }
